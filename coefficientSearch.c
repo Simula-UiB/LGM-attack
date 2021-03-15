@@ -87,9 +87,10 @@ int innerProduct(int *e, int n, int *b){
 }
 
 int decryptRowMatrix(int *e, int ne, int attacked_coefficient, int ai){
-	/*	Selects lambda-vector at random, and returns the decryption result of the ciphertext with ai's in row of attacked_coefficient, and 1's in row t+1.
-			Returns 0 if lambda_{attacked_coefficient} = 0 or |<e, lambda> + ai| < qBy4,
-			and returns 1 if lambda_{attacked_coefficient} = 1 and |<e, lambda> + ai| >= qBy4
+	/*
+	Selects lambda-vector at random, and returns the decryption result of the ciphertext with ai's in row of attacked_coefficient, and 1's in row t+1.
+	Returns 0 if lambda_{attacked_coefficient} = 0 or |<e, lambda> + ai| < qBy4,
+	and returns 1 if lambda_{attacked_coefficient} = 1 and |<e, lambda> + ai| >= qBy4
 	*/
 	int *lambda;
 	int u;
@@ -106,9 +107,10 @@ int decryptRowMatrix(int *e, int ne, int attacked_coefficient, int ai){
 }
 
 int decryptDiagonalMatrix(int *e, int ne, int ai){
-	/*	Selects lambda-vector at random, and returns the decryption result of the ciphertext matrix with ai's in position (i,i) of the matrix, and 1's in row t + 1.
-			Will always give u = ai + <e, lambda>, regardless of the lambda or chosen column.
-			Returns 0 if |u| < qBy4, and 1 otherwise.
+	/*
+	Selects lambda-vector at random, and returns the decryption result of the ciphertext matrix with ai's in position (i,i) of the matrix, and 1's in row t + 1.
+	Will always give u = ai + <e, lambda>, regardless of the lambda or chosen column.
+	Returns 0 if |u| < qBy4, and 1 otherwise.
 	*/
 	int *lambda;
 	double u;
@@ -220,8 +222,9 @@ double search_a(int *e, int ne, int attacked_coefficient, double scalingFactor, 
 }
 
 void checkE(char *destFileName, int **Etab, int *all_e, int attacked_vector, int m){
-	/* 	Compares estimated vector all_e with the correct secret key Etab[.][attacked_vector].
-			The function outputs these vectors, the number of incorrect positions and the Euclidean norm of their distance. 
+	/*
+	Compares estimated vector all_e with the correct secret key Etab[.][attacked_vector].
+	The function outputs these vectors, the number of incorrect positions and the Euclidean norm of their distance. 
 	*/
 	int wrong = 0;
 	int *diff_vector = (int *) malloc(m * sizeof(int));
@@ -250,11 +253,11 @@ void checkE(char *destFileName, int **Etab, int *all_e, int attacked_vector, int
 	
 int main(int argc, char *argv[]){
 	/**
-	*	Program parameters:
-	*	- lambda_max (e.g., 2)
-	*	- sample size (e.g. 100000)
-	*	- 0 (if lambda in [0...lambda_max - 1]) or 1 if lambda in [0...lambda_max])
-	*	- which of the secret key vectors e_i to recover, i in [0...t-1] lambda_max
+	* Program parameters:
+	* - lambda_max (e.g., 2)
+	* - sample size (e.g. 100000)
+	* - 0 (if lambda in [0...lambda_max - 1]) or 1 if lambda in [0...lambda_max])
+	* - which of the secret key vectors e_i to recover, i in [0...t-1] lambda_max
 	* - start and stop of which coefficients to find (like 24 27 for coefficients 24, 25 and 26),
 	* - the secret key file (e.g., secretKey_100_75_25.txt)
 	* 
