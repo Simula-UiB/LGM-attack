@@ -273,7 +273,7 @@ int main(int argc, char *argv[]){
 	srandom(time(NULL));
 	
 	if(argc!=8){
-		printf("Program must be called with:\n - lambda_max as first parameter (like 2, 3 or 4), \n - sample size as second parameter (like 100000, 0 for default sample size),\n - 0 (for lambda in [0...b-1]) or 1 (for lambda in [-b...b]) as third parameter,\n - which of the secret key vectors s_i to recover, i in [0...t-1],\n - start and stop of which coefficients to find (like 24 27 for coefficients 24, 25 and 26),\n the secret key file (e.g., secretKey_100_75_25.txt).\n");
+		printf("Program must be called with:\n - lambda_max as first parameter (like 2, 3 or 4), \n - sample size as second parameter (like 100000, 0 for default sample size),\n - 0 (for lambda in [0...b-1]) or 1 (for lambda in [-b...b]) as third parameter,\n - which of the secret key vectors s_i to recover, i in [0...t-1],\n - start and stop of which coefficients to find (like 24 27 for coefficients 24, 25 and 26),\n - the secret key file (e.g., secretKey_100_75_25.txt).\n");
 		exit(0);
 	}
 
